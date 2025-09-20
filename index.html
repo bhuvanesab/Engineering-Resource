@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineer Complete Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .journey-overview {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .journey-timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .journey-stage {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .stage-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .stage-duration {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .phase-container {
+            margin-bottom: 40px;
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 25px;
+            border-radius: 15px 15px 0 0;
+            text-align: center;
+        }
+        
+        .phase-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .phase-content {
+            background: white;
+            border-radius: 0 0 15px 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .year-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .year-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 6px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .year-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .year-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .month-timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .month-card {
+            background: white;
+            border-radius: 8px;
+            padding: 18px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .month-header {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .focus-area {
+            margin: 10px 0;
+        }
+        
+        .focus-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+        
+        .focus-items {
+            list-style: none;
+            padding-left: 15px;
+        }
+        
+        .focus-items li {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 3px 0;
+            position: relative;
+        }
+        
+        .focus-items li::before {
+            content: '▶';
+            color: #667eea;
+            position: absolute;
+            left: -15px;
+            font-size: 0.7rem;
+        }
+        
+        .target-box {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 4px solid #e17055;
+        }
+        
+        .target-title {
+            font-weight: bold;
+            color: #2d3436;
+            font-size: 0.9rem;
+        }
+        
+        .resources {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e3f2fd;
+            border-radius: 6px;
+        }
+        
+        .resource-type {
+            display: inline-block;
+            padding: 4px 10px;
+            margin: 3px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .free {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 1px solid #4caf50;
+        }
+        
+        .paid {
+            background: #fff3e0;
+            color: #ef6c00;
+            border: 1px solid #ff9800;
+        }
+        
+        .milestone {
+            background: linear-gradient(135deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .success-metrics {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .metric-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .flowchart-visual {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '↓';
+            position: absolute;
+            left: 50%;
+            bottom: -30px;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .flow-number {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .flow-content {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .flow-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .flow-description {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .flow-timeline {
+            background: #e3f2fd;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: #1976d2;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Complete Software Engineer Journey</h1>
+            <p>From Intermediate (After SSC) to Industry-Ready Professional</p>
+            <p style="font-size: 1rem;">6+ Years Comprehensive Roadmap</p>
+        </div>
+        
+        <div class="journey-overview">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #333;">📊 Journey Overview</h2>
+            <div class="journey-timeline">
+                <div class="journey-stage">
+                    <div class="stage-title">Intermediate</div>
+                    <div class="stage-duration">2 Years</div>
+                </div>
+                <div class="journey-stage">
+                    <div class="stage-title">Entrance Prep</div>
+                    <div class="stage-duration">6 Months</div>
+                </div>
+                <div class="journey-stage">
+                    <div class="stage-title">B.Tech</div>
+                    <div class="stage-duration">4 Years</div>
+                </div>
+                <div class="journey-stage">
+                    <div class="stage-title">Job Ready</div>
+                    <div class="stage-duration">Final Outcome</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flowchart-visual">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333;">🔄 Complete Flow Process</h2>
+            
+            <div class="flow-step">
+                <div class="flow-number">1</div>
+                <div class="flow-content">
+                    <div class="flow-title">Intermediate Years (11th & 12th)</div>
+                    <div class="flow-description">Build foundation while preparing for entrance exams</div>
+                    <div class="flow-timeline">Duration: 24 Months</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="flow-number">2</div>
+                <div class="flow-content">
+                    <div class="flow-title">Entrance Exam Preparation</div>
+                    <div class="flow-description">Intensive preparation for JEE/BITSAT/State CET</div>
+                    <div class="flow-timeline">Duration: 6 Months (12th + Gap if needed)</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="flow-number">3</div>
+                <div class="flow-content">
+                    <div class="flow-title">College Selection & Admission</div>
+                    <div class="flow-description">Get into good engineering college</div>
+                    <div class="flow-timeline">Duration: 2-3 Months</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="flow-number">4</div>
+                <div class="flow-content">
+                    <div class="flow-title">B.Tech Years 1-4</div>
+                    <div class="flow-description">Parallel learning: Academics + Industry Skills</div>
+                    <div class="flow-timeline">Duration: 48 Months</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="flow-number">5</div>
+                <div class="flow-content">
+                    <div class="flow-title">Internships & Industry Experience</div>
+                    <div class="flow-description">Apply for internships from 2nd year onwards</div>
+                    <div class="flow-timeline">Duration: Throughout college</div>
+                </div>
+            </div>
+            
+            <div class="flow-step">
+                <div class="flow-number">6</div>
+                <div class="flow-content">
+                    <div class="flow-title">Campus Placements & Job Ready</div>
+                    <div class="flow-description">Final year placements and job applications</div>
+                    <div class="flow-timeline">Duration: Last 6 months of B.Tech</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PHASE 1: INTERMEDIATE YEARS -->
+        <div class="phase-container">
+            <div class="phase-header">
+                <h2>📚 PHASE 1: Intermediate Years (11th & 12th)</h2>
+                <p>Foundation Building + Entrance Preparation + Early Coding</p>
+            </div>
+            <div class="phase-content">
+                <div class="year-grid">
+                    <!-- 11th Standard -->
+                    <div class="year-card">
+                        <div class="year-title">📖 11th Standard (First Year)</div>
+                        <div class="month-timeline">
+                            <div class="month-card">
+                                <div class="month-header">Months 1-3: Foundation</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">📐 Mathematics & Physics</div>
+                                    <ul class="focus-items">
+                                        <li>Trigonometry, Algebra basics</li>
+                                        <li>Mechanics, Heat & Thermodynamics</li>
+                                        <li>Daily 2 hours focused study</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">💻 Programming Introduction</div>
+                                    <ul class="focus-items">
+                                        <li>Learn C programming basics</li>
+                                        <li>Variables, loops, functions</li>
+                                        <li>30 minutes daily practice</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: Score 80%+ in first term</div>
+                                </div>
+                                <div class="resources">
+                                    <span class="resource-type free">Free: NCERT, Khan Academy</span>
+                                    <span class="resource-type paid">Paid: Byju's, Vedantu</span>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 4-6: Skill Building</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🗣️ Communication Skills</div>
+                                    <ul class="focus-items">
+                                        <li>English grammar improvement</li>
+                                        <li>Public speaking practice</li>
+                                        <li>Technical writing basics</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🧮 Aptitude Development</div>
+                                    <ul class="focus-items">
+                                        <li>Quantitative aptitude basics</li>
+                                        <li>Logical reasoning puzzles</li>
+                                        <li>Time management techniques</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: Solve 100 coding problems</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 7-12: Advanced Prep</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">📚 Subject Mastery</div>
+                                    <ul class="focus-items">
+                                        <li>Complete 11th syllabus</li>
+                                        <li>Start 12th advance reading</li>
+                                        <li>Practice previous year papers</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">💡 Entrance Exam Prep</div>
+                                    <ul class="focus-items">
+                                        <li>JEE Main pattern understanding</li>
+                                        <li>Basic problem-solving speed</li>
+                                        <li>Mock tests monthly</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: 85%+ in 11th finals</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone">🏆 11th Year Goal: Strong Foundation + Basic Programming + 85%+ Score</div>
+                    </div>
+                    
+                    <!-- 12th Standard -->
+                    <div class="year-card">
+                        <div class="year-title">🎓 12th Standard (Second Year)</div>
+                        <div class="month-timeline">
+                            <div class="month-card">
+                                <div class="month-header">Months 13-18: Intensive Prep</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🎯 Entrance Exam Focus</div>
+                                    <ul class="focus-items">
+                                        <li>JEE Main full syllabus</li>
+                                        <li>Daily 4-5 hours study</li>
+                                        <li>Weekly mock tests</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">💻 Programming Advancement</div>
+                                    <ul class="focus-items">
+                                        <li>Learn Python/Java basics</li>
+                                        <li>Data structures introduction</li>
+                                        <li>Build simple projects</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: JEE Mock score 150+</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 19-22: Final Push</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">⚡ Exam Preparation</div>
+                                    <ul class="focus-items">
+                                        <li>Board exam preparation</li>
+                                        <li>JEE Main intensive practice</li>
+                                        <li>Time management mastery</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🔧 Technical Skills</div>
+                                    <ul class="focus-items">
+                                        <li>Basic web development (HTML/CSS)</li>
+                                        <li>Algorithm problem solving</li>
+                                        <li>Version control (Git) basics</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: 90%+ Board, 200+ JEE</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 23-24: Exam & Results</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">📝 Final Examinations</div>
+                                    <ul class="focus-items">
+                                        <li>Board examinations</li>
+                                        <li>JEE Main attempts</li>
+                                        <li>State CET exams</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🏫 College Selection</div>
+                                    <ul class="focus-items">
+                                        <li>Research engineering colleges</li>
+                                        <li>Counseling preparation</li>
+                                        <li>Branch selection strategy</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: Secure good college admission</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone">🏆 12th Year Goal: College Admission + Strong Technical Foundation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PHASE 2: B.TECH YEARS -->
+        <div class="phase-container">
+            <div class="phase-header">
+                <h2>🎓 PHASE 2: B.Tech Years (4 Years Journey)</h2>
+                <p>Academic Excellence + Industry Skills + Real Projects + Internships</p>
+            </div>
+            <div class="phase-content">
+                <div class="year-grid">
+                    <!-- First Year B.Tech -->
+                    <div class="year-card">
+                        <div class="year-title">🌱 1st Year B.Tech (Foundation Year)</div>
+                        <div class="month-timeline">
+                            <div class="month-card">
+                                <div class="month-header">Months 1-6: College Adaptation</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">📚 Academic Focus</div>
+                                    <ul class="focus-items">
+                                        <li>Engineering Mathematics</li>
+                                        <li>Basic Engineering subjects</li>
+                                        <li>Maintain 8+ CGPA</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">💻 Programming Strengthening</div>
+                                    <ul class="focus-items">
+                                        <li>Master C/C++ programming</li>
+                                        <li>Basic data structures</li>
+                                        <li>Problem-solving practice</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: 8+ CGPA + 200 coding problems</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 7-12: Skill Development</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🌐 Web Technologies</div>
+                                    <ul class="focus-items">
+                                        <li>HTML5, CSS3 mastery</li>
+                                        <li>JavaScript fundamentals</li>
+                                        <li>Build 3 static websites</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🔧 Development Tools</div>
+                                    <ul class="focus-items">
+                                        <li>Git/GitHub proficiency</li>
+                                        <li>IDE mastery (VS Code)</li>
+                                        <li>Linux command line basics</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: Portfolio website + GitHub profile</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone">🏆 1st Year Goal: Strong Academics + Web Development Basics + GitHub Portfolio</div>
+                    </div>
+                    
+                    <!-- Second Year B.Tech -->
+                    <div class="year-card">
+                        <div class="year-title">🚀 2nd Year B.Tech (Skill Building)</div>
+                        <div class="month-timeline">
+                            <div class="month-card">
+                                <div class="month-header">Months 13-18: Core Development</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">📊 Data Structures & Algorithms</div>
+                                    <ul class="focus-items">
+                                        <li>Trees, Graphs, Hash Tables</li>
+                                        <li>Sorting & Searching algorithms</li>
+                                        <li>Solve 500+ DSA problems</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🗄️ Database Management</div>
+                                    <ul class="focus-items">
+                                        <li>SQL query mastery</li>
+                                        <li>Database design principles</li>
+                                        <li>MySQL/PostgreSQL practice</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: First internship application</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 19-24: Backend Development</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">⚙️ Server-Side Programming</div>
+                                    <ul class="focus-items">
+                                        <li>Node.js or Python Django/Flask</li>
+                                        <li>RESTful API development</li>
+                                        <li>Authentication & authorization</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🏆 First Internship</div>
+                                    <ul class="focus-items">
+                                        <li>Apply to 50+ companies</li>
+                                        <li>Summer internship (2-3 months)</li>
+                                        <li>Real industry experience</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: Summer internship completion</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone">🏆 2nd Year Goal: DSA Mastery + Backend Skills + First Internship</div>
+                    </div>
+                    
+                    <!-- Third Year B.Tech -->
+                    <div class="year-card">
+                        <div class="year-title">⚡ 3rd Year B.Tech (Specialization)</div>
+                        <div class="month-timeline">
+                            <div class="month-card">
+                                <div class="month-header">Months 25-30: Full-Stack Mastery</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">⚛️ Frontend Frameworks</div>
+                                    <ul class="focus-items">
+                                        <li>React.js with hooks & context</li>
+                                        <li>State management (Redux)</li>
+                                        <li>Responsive design mastery</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">☁️ Cloud & DevOps</div>
+                                    <ul class="focus-items">
+                                        <li>AWS/Azure basics</li>
+                                        <li>Docker containerization</li>
+                                        <li>CI/CD pipeline setup</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: 3 full-stack projects</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 31-36: Advanced Skills</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🔧 System Design</div>
+                                    <ul class="focus-items">
+                                        <li>Scalability concepts</li>
+                                        <li>Load balancing, caching</li>
+                                        <li>Microservices architecture</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🏢 Advanced Internship</div>
+                                    <ul class="focus-items">
+                                        <li>Product-based company internship</li>
+                                        <li>6-month internship program</li>
+                                        <li>Pre-placement offer (PPO) target</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: PPO or strong recommendation</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone">🏆 3rd Year Goal: Full-Stack Expertise + System Design + Advanced Internship</div>
+                    </div>
+                    
+                    <!-- Fourth Year B.Tech -->
+                    <div class="year-card">
+                        <div class="year-title">🎯 4th Year B.Tech (Job Preparation)</div>
+                        <div class="month-timeline">
+                            <div class="month-card">
+                                <div class="month-header">Months 37-42: Interview Preparation</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">💼 Campus Placement Prep</div>
+                                    <ul class="focus-items">
+                                        <li>Resume building & optimization</li>
+                                        <li>Mock interview sessions</li>
+                                        <li>Company-specific preparation</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🧠 Advanced Problem Solving</div>
+                                    <ul class="focus-items">
+                                        <li>1000+ LeetCode problems solved</li>
+                                        <li>System design case studies</li>
+                                        <li>Behavioral interview preparation</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: Top-tier company shortlisting</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Months 43-48: Job Acquisition</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🏆 Campus Placements</div>
+                                    <ul class="focus-items">
+                                        <li>Apply to FAANG companies</li>
+                                        <li>Multiple offer negotiations</li>
+                                        <li>Final project completion</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🚀 Industry Readiness</div>
+                                    <ul class="focus-items">
+                                        <li>Professional networking</li>
+                                        <li>Open source contributions</li>
+                                        <li>Technical blog writing</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: High-paying job offer (15+ LPA)</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone">🏆 4th Year Goal: Job Offer from Top Company + Industry Ready Professional</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PHASE 3: JOB ACQUISITION PROCESS -->
+        <div class="phase-container">
+            <div class="phase-header">
+                <h2>💼 PHASE 3: Job Acquisition & Industry Entry</h2>
+                <p>Final 6 Months: From System Design Mastery to Job Offer</p>
+            </div>
+            <div class="phase-content">
+                <div class="year-grid">
+                    <div class="year-card">
+                        <div class="year-title">🎯 Job Preparation Intensive (Months 43-48)</div>
+                        <div class="month-timeline">
+                            <div class="month-card">
+                                <div class="month-header">Month 43-44: System Design Mastery</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🏗️ System Design Deep Dive</div>
+                                    <ul class="focus-items">
+                                        <li>Design WhatsApp, Instagram, Uber</li>
+                                        <li>Database sharding & replication</li>
+                                        <li>Caching strategies (Redis, Memcached)</li>
+                                        <li>Message queues & pub-sub systems</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">⚡ Performance & Scalability</div>
+                                    <ul class="focus-items">
+                                        <li>Load balancing techniques</li>
+                                        <li>CDN implementation</li>
+                                        <li>Microservices vs Monolith</li>
+                                        <li>API rate limiting & throttling</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: Design 5 major systems end-to-end</div>
+                                </div>
+                                <div class="resources">
+                                    <span class="resource-type free">Free: System Design Primer (GitHub)</span>
+                                    <span class="resource-type paid">Paid: Grokking System Design, Educative</span>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Month 45: Portfolio & Resume Excellence</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">📁 Professional Portfolio</div>
+                                    <ul class="focus-items">
+                                        <li>Professional website with custom domain</li>
+                                        <li>5-7 diverse project showcases</li>
+                                        <li>Technical blog with 10+ articles</li>
+                                        <li>Open source contribution highlights</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">📄 Resume Optimization</div>
+                                    <ul class="focus-items">
+                                        <li>ATS-friendly format</li>
+                                        <li>Quantified achievements</li>
+                                        <li>Tech stack alignment with job roles</li>
+                                        <li>Professional review & feedback</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: 95%+ ATS score, Professional portfolio</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Month 46: Interview Mastery</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🧠 Technical Interview Prep</div>
+                                    <ul class="focus-items">
+                                        <li>Mock interviews with peers/seniors</li>
+                                        <li>Company-specific coding patterns</li>
+                                        <li>Time-bound problem solving</li>
+                                        <li>Code optimization techniques</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🗣️ Behavioral Interview Prep</div>
+                                    <ul class="focus-items">
+                                        <li>STAR method mastery</li>
+                                        <li>Leadership & teamwork stories</li>
+                                        <li>Conflict resolution examples</li>
+                                        <li>Culture fit preparation</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: 50+ mock interviews completed</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Month 47: Job Applications & Networking</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🎯 Strategic Job Applications</div>
+                                    <ul class="focus-items">
+                                        <li>Apply to 100+ companies</li>
+                                        <li>FAANG company applications</li>
+                                        <li>Startup applications (high growth)</li>
+                                        <li>Product-based company focus</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🤝 Professional Networking</div>
+                                    <ul class="focus-items">
+                                        <li>LinkedIn connections (500+)</li>
+                                        <li>Industry meetups & conferences</li>
+                                        <li>Alumni network activation</li>
+                                        <li>Referral requests (20+ companies)</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 Target: 50+ interview calls scheduled</div>
+                                </div>
+                            </div>
+                            
+                            <div class="month-card">
+                                <div class="month-header">Month 48: Final Push & Job Offers</div>
+                                <div class="focus-area">
+                                    <div class="focus-title">🏆 Interview Excellence</div>
+                                    <ul class="focus-items">
+                                        <li>Attend 30+ technical interviews</li>
+                                        <li>System design interview rounds</li>
+                                        <li>Hiring manager discussions</li>
+                                        <li>Salary negotiation preparation</li>
+                                    </ul>
+                                </div>
+                                <div class="focus-area">
+                                    <div class="focus-title">💰 Offer Management</div>
+                                    <ul class="focus-items">
+                                        <li>Multiple offer comparison</li>
+                                        <li>Salary negotiation (20-30% hike)</li>
+                                        <li>Benefits & equity evaluation</li>
+                                        <li>Final decision & acceptance</li>
+                                    </ul>
+                                </div>
+                                <div class="target-box">
+                                    <div class="target-title">🎯 TARGET ACHIEVED: Job Offer 15-25 LPA</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="milestone" style="background: linear-gradient(135deg, #00b894, #00cec9);">
+                            🎉 FINAL ACHIEVEMENT: Software Engineer at Top Company - Industry Ready Professional!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- DETAILED RESOURCE LIBRARY -->
+        <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 25px 50px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #333; font-size: 2.5rem;">📚 Complete Resource Library</h2>
+            <p style="text-align: center; color: #666; font-size: 1.2rem; margin-bottom: 40px;">Comprehensive collection of all learning resources mentioned in the roadmap</p>
+            
+            <!-- PHASE 1 RESOURCES: INTERMEDIATE YEARS -->
+            <div style="margin-bottom: 50px;">
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 25px; border-radius: 15px 15px 0 0; text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 10px;">📖 Phase 1: Intermediate Years (11th-12th) Resources</h3>
+                    <p style="font-size: 1.1rem; opacity: 0.9;">Foundation building + Entrance preparation + Early coding</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 0 0 15px 15px;">
+                    
+                    <!-- Mathematics & Physics Resources -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #667eea; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #667eea; padding-bottom: 10px;">📐 Mathematics & Physics</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                                <h5 style="color: #28a745; font-size: 1.2rem; margin-bottom: 15px;">🆓 Free Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>NCERT Solutions:</strong> <a href="https://ncert.nic.in/" target="_blank" style="color: #667eea;">ncert.nic.in</a> - Official textbooks and solutions</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Khan Academy:</strong> <a href="https://khanacademy.org" target="_blank" style="color: #667eea;">khanacademy.org</a> - Complete math and science courses</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Physics Wallah:</strong> <a href="https://youtube.com/@PhysicsWallah" target="_blank" style="color: #667eea;">YouTube Channel</a> - Free JEE/NEET preparation</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Unacademy Free:</strong> <a href="https://unacademy.com" target="_blank" style="color: #667eea;">unacademy.com</a> - Free classes and mock tests</li>
+                                    <li style="padding: 8px 0;"><strong>Embibe:</strong> <a href="https://embibe.com" target="_blank" style="color: #667eea;">embibe.com</a> - AI-powered learning and practice</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                                <h5 style="color: #856404; font-size: 1.2rem; margin-bottom: 15px;">💳 Paid Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Byju's Premium:</strong> ₹15,000/year - Interactive learning app with personalized content</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Vedantu Live Classes:</strong> ₹12,000/year - Live interactive classes with doubt clearing</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Allen Online Classes:</strong> ₹35,000/year - Comprehensive JEE preparation</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Aakash Digital:</strong> ₹30,000/year - Digital learning platform with test series</li>
+                                    <li style="padding: 8px 0;"><strong>Toppr Premium:</strong> ₹15,000/year - Adaptive learning with AI-powered recommendations</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Programming Resources -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #667eea; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #667eea; padding-bottom: 10px;">💻 Programming Fundamentals</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                                <h5 style="color: #28a745; font-size: 1.2rem; margin-bottom: 15px;">🆓 Free Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Programiz C Tutorial:</strong> <a href="https://programiz.com" target="_blank" style="color: #667eea;">programiz.com</a> - Beginner-friendly C programming</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>W3Schools:</strong> <a href="https://w3schools.com" target="_blank" style="color: #667eea;">w3schools.com</a> - Web technologies and programming basics</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Python.org Tutorial:</strong> <a href="https://python.org/tutorial" target="_blank" style="color: #667eea;">python.org/tutorial</a> - Official Python documentation</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>freeCodeCamp:</strong> <a href="https://freecodecamp.org" target="_blank" style="color: #667eea;">freecodecamp.org</a> - Full-stack development curriculum</li>
+                                    <li style="padding: 8px 0;"><strong>HackerRank:</strong> <a href="https://hackerrank.com" target="_blank" style="color: #667eea;">hackerrank.com</a> - Programming practice and challenges</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                                <h5 style="color: #856404; font-size: 1.2rem; margin-bottom: 15px;">💳 Paid Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Coding Ninjas Foundation:</strong> ₹8,000 - C++ and basic programming concepts</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Codecademy Pro:</strong> ₹2,400/year - Interactive programming courses with projects</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Udemy Complete Python:</strong> ₹5,000 - Comprehensive Python programming course</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Scaler Academy Trial:</strong> ₹2,000 - Programming fundamentals with industry focus</li>
+                                    <li style="padding: 8px 0;"><strong>Pluralsight:</strong> ₹3,000/month - Technology skills platform with coding tracks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Entrance Exam Resources -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #667eea; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #667eea; padding-bottom: 10px;">🎯 Entrance Exam Preparation</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                                <h5 style="color: #28a745; font-size: 1.2rem; margin-bottom: 15px;">🆓 Free Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>JEE Main Previous Papers:</strong> <a href="https://jeemain.nta.nic.in" target="_blank" style="color: #667eea;">jeemain.nta.nic.in</a> - Official past papers</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Doubtnut:</strong> <a href="https://doubtnut.com" target="_blank" style="color: #667eea;">doubtnut.com</a> - Doubt solving and mock tests</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Physics Wallah JEE:</strong> YouTube Channel - Complete JEE syllabus coverage</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Unacademy JEE:</strong> Free JEE preparation courses and live classes</li>
+                                    <li style="padding: 8px 0;"><strong>Embibe AI Analysis:</strong> Free AI-powered performance analysis and improvement suggestions</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                                <h5 style="color: #856404; font-size: 1.2rem; margin-bottom: 15px;">💳 Paid Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>VMC Online:</strong> ₹40,000/year - Comprehensive JEE Main and Advanced preparation</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Resonance eKota:</strong> ₹25,000/year - Digital classroom experience with expert faculty</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Career Launcher Courses:</strong> ₹35,000/year - JEE preparation with personalized mentoring</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Allen Test Series:</strong> ₹8,000 - Comprehensive test series for JEE Main and Advanced</li>
+                                    <li style="padding: 8px 0;"><strong>BITSAT Test Series:</strong> ₹3,000 - Specialized preparation for BITSAT examination</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Communication & Aptitude Resources -->
+                    <div>
+                        <h4 style="color: #667eea; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #667eea; padding-bottom: 10px;">🗣️ Communication & Aptitude</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                                <h5 style="color: #28a745; font-size: 1.2rem; margin-bottom: 15px;">🆓 Free Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Duolingo:</strong> <a href="https://duolingo.com" target="_blank" style="color: #667eea;">duolingo.com</a> - English language learning</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>BBC Learning English:</strong> <a href="https://bbc.co.uk/learningenglish" target="_blank" style="color: #667eea;">bbc.co.uk/learningenglish</a> - British English learning</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>IndiaBix:</strong> <a href="https://indiabix.com" target="_blank" style="color: #667eea;">indiabix.com</a> - Aptitude questions and practice</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>RS Agarwal PDFs:</strong> Free quantitative aptitude practice materials</li>
+                                    <li style="padding: 8px 0;"><strong>Brilliant.org (Free):</strong> <a href="https://brilliant.org" target="_blank" style="color: #667eea;">brilliant.org</a> - Problem-solving and logical thinking</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                                <h5 style="color: #856404; font-size: 1.2rem; margin-bottom: 15px;">💳 Paid Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>FluentU:</strong> ₹1,500/month - English learning through real-world videos</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Udemy English Courses:</strong> ₹3,000 - Business English and communication skills</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>PrepInsta Premium:</strong> ₹2,999/year - Placement aptitude preparation</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Testbook Pro:</strong> ₹4,999/year - Government exam and aptitude preparation</li>
+                                    <li style="padding: 8px 0;"><strong>Gradeup:</strong> ₹3,500/year - Competitive exam preparation with mock tests</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PHASE 2 RESOURCES: B.TECH YEARS -->
+            <div style="margin-bottom: 50px;">
+                <div style="background: linear-gradient(135deg, #28a745, #20c997); color: white; padding: 25px; border-radius: 15px 15px 0 0; text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 10px;">🎓 Phase 2: B.Tech Years (1st-4th) Resources</h3>
+                    <p style="font-size: 1.1rem; opacity: 0.9;">Academic excellence + Industry skills + Real projects + Internships</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 30px; border-radius: 0 0 15px 15px;">
+                    
+                    <!-- Programming & DSA Resources -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #28a745; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #28a745; padding-bottom: 10px;">💻 Programming & Data Structures</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                                <h5 style="color: #28a745; font-size: 1.2rem; margin-bottom: 15px;">🆓 Free Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>GeeksforGeeks DSA:</strong> <a href="https://geeksforgeeks.org" target="_blank" style="color: #28a745;">geeksforgeeks.org</a> - Complete DSA curriculum and practice</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>LeetCode:</strong> <a href="https://leetcode.com" target="_blank" style="color: #28a745;">leetcode.com</a> - 2000+ coding problems with solutions</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>HackerRank:</strong> <a href="https://hackerrank.com" target="_blank" style="color: #28a745;">hackerrank.com</a> - Programming challenges and contests</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>CodeChef:</strong> <a href="https://codechef.com" target="_blank" style="color: #28a745;">codechef.com</a> - Competitive programming platform</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Codeforces:</strong> <a href="https://codeforces.com" target="_blank" style="color: #28a745;">codeforces.com</a> - Programming contests and practice</li>
+                                    <li style="padding: 8px 0;"><strong>YouTube (Abdul Bari):</strong> Data structures and algorithms video lectures</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                                <h5 style="color: #856404; font-size: 1.2rem; margin-bottom: 15px;">💳 Paid Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>AlgoExpert:</strong> ₹8,000/year - 160+ coding problems with video explanations</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Coding Ninjas DSA:</strong> ₹18,000 - Comprehensive data structures and algorithms course</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>LeetCode Premium:</strong> ₹2,500/year - Premium problems and mock interviews</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>InterviewBit:</strong> ₹4,000/year - Programming and interview preparation</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Coursera Algorithms:</strong> ₹3,000/course - Princeton and Stanford algorithms courses</li>
+                                    <li style="padding: 8px 0;"><strong>Udemy DSA Courses:</strong> ₹4,000 each - Various DSA courses by industry experts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Web Development Resources -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #28a745; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #28a745; padding-bottom: 10px;">🌐 Web Development (Frontend + Backend)</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                                <h5 style="color: #28a745; font-size: 1.2rem; margin-bottom: 15px;">🆓 Free Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>MDN Web Docs:</strong> <a href="https://developer.mozilla.org" target="_blank" style="color: #28a745;">developer.mozilla.org</a> - Complete web development reference</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>freeCodeCamp:</strong> <a href="https://freecodecamp.org" target="_blank" style="color: #28a745;">freecodecamp.org</a> - Full-stack development certification</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>React Documentation:</strong> <a href="https://react.dev" target="_blank" style="color: #28a745;">react.dev</a> - Official React.js documentation and tutorials</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Node.js Documentation:</strong> <a href="https://nodejs.org" target="_blank" style="color: #28a745;">nodejs.org</a> - Server-side JavaScript development</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Express.js Guide:</strong> <a href="https://expressjs.com" target="_blank" style="color: #28a745;">expressjs.com</a> - Web framework for Node.js</li>
+                                    <li style="padding: 8px 0;"><strong>YouTube Channels:</strong> Traversy Media, The Net Ninja, Codevolution</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                                <h5 style="color: #856404; font-size: 1.2rem; margin-bottom: 15px;">💳 Paid Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Frontend Masters:</strong> ₹36,000/year - Advanced frontend development courses</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Udemy Web Development Bootcamp:</strong> ₹4,000 - Complete web development course</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>React - The Complete Guide:</strong> ₹4,500 - Comprehensive React.js course</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Scaler Academy:</strong> ₹50,000/year - Industry-focused full-stack development</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Pluralsight:</strong> ₹36,000/year - Technology learning platform</li>
+                                    <li style="padding: 8px 0;"><strong>Egghead.io:</strong> ₹3,000/month - Advanced web development tutorials</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Database & Backend Resources -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="color: #28a745; font-size: 1.4rem; margin-bottom: 20px; border-bottom: 2px solid #28a745; padding-bottom: 10px;">🗄️ Database & Backend Development</h4>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #28a745;">
+                                <h5 style="color: #28a745; font-size: 1.2rem; margin-bottom: 15px;">🆓 Free Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>W3Schools SQL:</strong> <a href="https://w3schools.com/sql" target="_blank" style="color: #28a745;">w3schools.com/sql</a> - Complete SQL tutorial</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>MySQL Documentation:</strong> <a href="https://dev.mysql.com/doc" target="_blank" style="color: #28a745;">dev.mysql.com/doc</a> - Official MySQL documentation</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>PostgreSQL Tutorial:</strong> <a href="https://postgresql.org/docs" target="_blank" style="color: #28a745;">postgresql.org/docs</a> - Advanced SQL database</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Django Tutorial:</strong> <a href="https://djangoproject.com" target="_blank" style="color: #28a745;">djangoproject.com</a> - Python web framework</li>
+                                    <li style="padding: 8px 0;"><strong>Flask Documentation:</strong> <a href="https://flask.palletsprojects.com" target="_blank" style="color: #28a745;">flask.palletsprojects.com</a> - Micro web framework</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid #ffc107;">
+                                <h5 style="color: #856404; font-size: 1.2rem; margin-bottom: 15px;">💳 Paid Resources</h5>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Udemy Complete SQL Bootcamp:</strong> ₹3,000 - Comprehensive SQL and database design</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>MongoDB University:</strong> ₹5,000 - NoSQL database certification and courses</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Scaler Backend Course:</strong> ₹50,000/year - Industry-focused backend development</li>
+                                    <li style="padding: 8px 0; border-bottom: 1px solid #eee;"><strong>Udemy Node.js Complete Guide:</strong> ₹4,000 - Full Node.js backend development</li>
+                                    <li style="padding: 8px 0;"><strong>Coursera Database Systems:</strong> ₹3,000/course - University-level database courses</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+        
+        <!-- SUCCESS METRICS & FINAL OUTCOMES -->
+        <div class="success-metrics">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #333;">📊 Success Metrics & Expected Outcomes</h2>
+            <div class="metrics-grid">
+                <div class="metric-card" style="background: linear-gradient(135deg, #00b894, #00cec9);">
+                    <div class="metric-number">85%+</div>
+                    <div class="metric-label">Academic Performance</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #fd79a8, #e84393);">
+                    <div class="metric-number">1000+</div>
+                    <div class="metric-label">Problems Solved</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #fdcb6e, #e17055);">
+                    <div class="metric-number">10+</div>
+                    <div class="metric-label">Major Projects</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #6c5ce7, #a29bfe);">
+                    <div class="metric-number">3+</div>
+                    <div class="metric-label">Internships</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #fd79a8, #fdcb6e);">
+                    <div class="metric-number">15-25</div>
+                    <div class="metric-label">LPA Salary Range</div>
+                </div>
+                <div class="metric-card" style="background: linear-gradient(135deg, #00cec9, #55efc4);">
+                    <div class="metric-number">100%</div>
+                    <div class="metric-label">Industry Ready</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FINAL SKILLS CHECKLIST -->
+        <div class="success-metrics" style="background: linear-gradient(135deg, #2d3436, #636e72); color: white;">
+            <h2 style="text-align: center; margin-bottom: 30px; color: white;">✅ Final Skills Checklist - Industry Ready</h2>
+            
+            <div class="skills-checklist" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div class="skill-category" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
+                    <h4 style="color: #74b9ff; margin-bottom: 15px; font-size: 1.2rem;">🚀 Frontend Mastery</h4>
+                    <ul class="skill-list" style="list-style: none;">
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">HTML5, CSS3, JavaScript ES6+</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">React.js with Hooks & Context</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">State Management (Redux/Zustand)</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Responsive Design & PWA</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Build Tools (Webpack, Vite)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
+                    <h4 style="color: #fd79a8; margin-bottom: 15px; font-size: 1.2rem;">⚙️ Backend Excellence</h4>
+                    <ul class="skill-list" style="list-style: none;">
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Node.js/Python with frameworks</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">RESTful API & GraphQL</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Database Design (SQL/NoSQL)</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Authentication & Security</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Microservices Architecture</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
+                    <h4 style="color: #00cec9; margin-bottom: 15px; font-size: 1.2rem;">☁️ DevOps & Cloud</h4>
+                    <ul class="skill-list" style="list-style: none;">
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Docker & Containerization</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">AWS/Azure Cloud Platforms</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">CI/CD Pipelines</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Monitoring & Logging</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Infrastructure as Code</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
+                    <h4 style="color: #fdcb6e; margin-bottom: 15px; font-size: 1.2rem;">🧠 Problem Solving</h4>
+                    <ul class="skill-list" style="list-style: none;">
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Data Structures & Algorithms</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">System Design & Architecture</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Code Optimization</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Debugging & Testing</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Performance Tuning</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
+                    <h4 style="color: #a29bfe; margin-bottom: 15px; font-size: 1.2rem;">🤝 Professional Skills</h4>
+                    <ul class="skill-list" style="list-style: none;">
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Agile Methodology & Scrum</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Technical Communication</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Code Review & Collaboration</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Project Management</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Mentoring & Leadership</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category" style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 12px;">
+                    <h4 style="color: #55efc4; margin-bottom: 15px; font-size: 1.2rem;">🎯 Interview Readiness</h4>
+                    <ul class="skill-list" style="list-style: none;">
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">1000+ Coding Problems</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">System Design Mastery</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Behavioral Interview Skills</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Portfolio & Projects</li>
+                        <li style="padding: 5px 0; position: relative; padding-left: 25px;">Salary Negotiation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FINAL SUCCESS MESSAGE -->
+        <div style="background: linear-gradient(135deg, #00b894, #00cec9); color: white; text-align: center; padding: 50px; border-radius: 20px; margin-top: 30px; box-shadow: 0 25px 50px rgba(0,0,0,0.2);">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">🎉 CONGRATULATIONS!</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 15px;">You are now a <strong>Industry-Ready Full-Stack Software Engineer</strong></p>
+            <p style="font-size: 1.1rem; margin-bottom: 25px;">Ready to join top tech companies with competitive salaries (15-25 LPA+)</p>
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 5px;">⏱️</div>
+                    <div>6+ Years Journey</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 5px;">🎓</div>
+                    <div>B.Tech + Skills</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 5px;">💼</div>
+                    <div>Industry Ready</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; margin-bottom: 5px;">💰</div>
+                    <div>High Salary</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
